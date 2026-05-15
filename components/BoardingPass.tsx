@@ -1,4 +1,5 @@
 'use client'
+import Image from 'next/image'
 import type { Flight } from '@/lib/flights'
 
 function PlaneIcon() {
@@ -12,18 +13,7 @@ function PlaneIcon() {
 function TALogo() {
   return (
     <div className="flex items-center gap-2">
-      <svg width="32" height="32" viewBox="0 0 100 100">
-        <circle cx="50" cy="50" r="48" fill="#C8102E" />
-        {[0, 45, 90, 135, 180, 225, 270, 315].map((a) => (
-          <ellipse
-            key={a}
-            cx="50" cy="28" rx="7" ry="18"
-            fill="white"
-            transform={`rotate(${a} 50 50)`}
-          />
-        ))}
-        <circle cx="50" cy="50" r="10" fill="#C8102E" />
-      </svg>
+      <Image src="/turkishlogo.jpg" alt="Turkish Airlines" width={32} height={32} className="object-contain" />
       <div>
         <p className="text-[10px] font-bold tracking-[0.2em] text-gray-800 leading-none">TURKISH</p>
         <p className="text-[10px] font-bold tracking-[0.2em] text-gray-800 leading-none">AIRLINES</p>
