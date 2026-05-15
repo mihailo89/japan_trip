@@ -1,26 +1,60 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-background: #fff8f9;
+  --color-foreground: #1a1a2e;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ── Sakura falling ── */
+@keyframes petalFall {
+  0%   { transform: translateY(-80px) translateX(0px) rotate(0deg); opacity: 0; }
+  6%   { opacity: 0.85; }
+  88%  { opacity: 0.6; }
+  100% { transform: translateY(110vh) translateX(var(--sway)) rotate(var(--spin)); opacity: 0; }
+}
+
+.sakura-petal {
+  position: absolute;
+  top: 0;
+  animation: petalFall var(--dur) var(--delay) linear infinite;
+  will-change: transform;
+}
+
+/* ── Split-flap flip ── */
+@keyframes flapDown {
+  from { transform: perspective(250px) rotateX(0deg); }
+  to   { transform: perspective(250px) rotateX(-90deg); }
+}
+
+@keyframes flapUp {
+  from { transform: perspective(250px) rotateX(90deg); }
+  to   { transform: perspective(250px) rotateX(0deg); }
+}
+
+.flap-down {
+  animation: flapDown 0.28s ease-in forwards;
+}
+
+.flap-up {
+  animation: flapUp 0.28s ease-out forwards;
+}
+
+/* ── Cursor petal trail ── */
+@keyframes petalTrail {
+  0%   { opacity: 0.85; transform: scale(1) rotate(0deg) translateY(0px); }
+  100% { opacity: 0;    transform: scale(0.1) rotate(220deg) translateY(28px); }
+}
+
+.cursor-petal {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  animation: petalTrail 0.85s ease-out forwards;
 }
