@@ -31,7 +31,7 @@ export default function Home() {
       />
 
       {/* ── Hero / Countdown ── */}
-      <section className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 gap-10">
+      <section className="relative z-10 min-h-dvh flex flex-col items-center justify-center px-4 gap-10">
         {/* Route title */}
         <div className="text-center space-y-2">
           <h1 className="mb-5 text-4xl sm:text-5xl md:text-7xl font-bold text-gray-900 tracking-tight" style={{ fontFamily: '"Noto Serif JP", "Yu Mincho", "Hiragino Mincho ProN", serif' }}>

@@ -54,9 +54,9 @@ export default function BoardingPass({ flight }: BoardingPassProps) {
         {/* Top red stripe */}
         <div className="h-1.5 bg-gradient-to-r from-red-700 via-red-600 to-red-700" />
 
-        <div className="flex">
+        <div className="flex flex-col sm:flex-row">
           {/* ── Left: main ticket ── */}
-          <div className="flex-1 p-7 flex flex-col gap-5">
+          <div className="flex-1 p-5 sm:p-7 flex flex-col gap-5">
             {/* Header */}
             <div className="flex items-center justify-between">
               <TALogo />
@@ -119,14 +119,14 @@ export default function BoardingPass({ flight }: BoardingPassProps) {
           </div>
 
           {/* ── Perforated divider ── */}
-          <div className="relative flex flex-col items-center w-6 shrink-0">
-            <div className="absolute -top-3 w-6 h-6 rounded-full bg-rose-50 border border-gray-100" />
-            <div className="w-0 h-full border-l-2 border-dashed border-gray-200" />
-            <div className="absolute -bottom-3 w-6 h-6 rounded-full bg-rose-50 border border-gray-100" />
+          <div className="relative flex flex-row sm:flex-col items-center h-6 w-full sm:h-auto sm:w-6 sm:shrink-0">
+            <div className="absolute -left-3 sm:left-auto sm:-top-3 w-6 h-6 rounded-full bg-gray-50 border border-gray-100" />
+            <div className="h-0 w-full border-t-2 border-dashed border-gray-200 sm:h-full sm:w-0 sm:border-t-0 sm:border-l-2" />
+            <div className="absolute -right-3 sm:right-auto sm:-bottom-3 w-6 h-6 rounded-full bg-gray-50 border border-gray-100" />
           </div>
 
           {/* ── Right: stub ── */}
-          <div className="w-44 p-6 flex flex-col bg-rose-50/40">
+          <div className="w-full sm:w-44 p-5 sm:p-6 flex flex-col bg-white">
             <div className="mb-4">
               <p className="text-[10px] text-gray-400 uppercase tracking-widest mb-0.5">Boarding</p>
               <p className="font-bold text-gray-800 text-lg">{flight.boarding}</p>
